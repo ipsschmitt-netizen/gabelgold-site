@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabelgold – Stapler-Service & Schulungen</title>
+  <!-- Hauptstil -->
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Zusätzliche Styles für den Einsatzrechner */
+    #calcForm {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 400px;
+    }
+    #calcForm label {
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+    #calcForm input, #calcForm select {
+      padding: 0.4rem;
+      font-size: 1rem;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+    }
+    #calcForm button {
+      margin-top: 0.5rem;
+      padding: 0.6rem;
+      background-color: #bb0000;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    #calcForm button:hover {
+      background-color: #a00000;
+    }
+    #result {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background-color: #ffefef;
+      border: 1px solid #ffd5d5;
+      border-radius: 4px;
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-wrapper">
+      <img src="assets/images/logo.png" alt="Gabelgold Logo" class="logo">
+      <div class="logo-text">
+        <h1>Gabelgold</h1>
+        <h2>Stapler‑Service &amp; Schulungen</h2>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h3>Unsere Leistungen</h3>
+      <p>
+        Gabelgold bietet Ihnen ein flexibles Rundum‑Paket: Stapler mit Fahrer, Mietstapler ohne Fahrer
+        und praxisnahe Schulungen nach DGUV 308‑001. Sie bekommen alles aus einer Hand – inklusive
+        Organisation des Mietstaplers, Lieferung und fachkundiger Bedienung vor Ort. Für Betriebe mit
+        eigenem Gerät bieten wir Fahrerservices und jährliche Unterweisungen an.
+      </p>
+    </section>
+
+    <section class="section" id="einsatzrechner">
+      <h3>Einsatzrechner</h3>
+      <p>Berechnen Sie schnell Preis (netto &amp; brutto) und Ihren Gewinn für verschiedene Einsätze.</p>
+      <form id="calcForm" onsubmit="return false;">
+        <label for="service">Leistung:</label>
+        <select id="service" name="service">
+          <option value="stapler">Stapler + Fahrer (pro Stunde)</option>
+          <option value="mietstapler">Mietstapler ohne Fahrer (pro Stunde)</option>
+          <option value="grundkurs">Grundausbildung (2‑Tage‑Kurs, pauschal)</option>
+        </select>
+
+        <div id="inputHoursGroup">
+          <label for="hours">Stunden:</label>
+          <input type="number" id="hours" name="hours" value="1" min="1" step="1">
+        </div>
+
+        <div id="inputParticipantsGroup" style="display:none;">
+          <label for="participants">Teilnehmer (max. 10):</label>
+          <input type="number" id="participants" name="participants" value="5" min="1" max="10">
+        </div>
+
+        <button type="button" onclick="calculate()">Berechnen</button>
+      </form>
+      <div id="result"></div>
+    </section>
+
+    <section class="cta">
+      <p><strong>Haben Sie Fragen?</strong> Schreiben Sie uns an
+        <a href="mailto:gabelgold2025@gmail.com">gabelgold2025@gmail.com</a> oder rufen Sie an: 0152 / 04 00 62 86.</p>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <h3>Kontakt</h3>
+    <address>
+      Christian Schmitt<br>
+      Tannenwäldchen 9 · 42781 Haan<br>
+      Tel: <a href="tel:+4915204006286">0152 / 04 00 62 86</a><br>
+      E‑Mail: <a href="mailto:gabelgold2025@gmail.com">gabelgold2025@gmail.com</a>
+    </address>
+  </footer>
+
+  <script>
+    const services = {
+      stapler: { price: 150, cost: 65 }, // Preis und Kosten pro Stunde (Stapler + Fahrer)
+      mietstapler: { price: 40, cost: 25 }, // Preis und Kosten pro Stunde (Mietstapler ohne Fahrer)
+      grundkurs: { price: 1200, cost: 600 } // Pauschalpreis und geschätzte Kosten pro Kurs (2 Tage)
+    };
+
+    function updateInputs() {
+      const service = document.getElementById('service').value;
+      const hoursGroup = document.getElementById('inputHoursGroup');
+      const participantsGroup = document.getElementById('inputParticipantsGroup');
+      if (service === 'grundkurs') {
+        hoursGroup.style.display = 'none';
+        participantsGroup.style.display = 'block';
+      } else {
+        hoursGroup.style.display = 'block';
+        participantsGroup.style.display = 'none';
+      }
+    }
+
+    function calculate() {
+      const service = document.getElementById('service').value;
+      const hours = parseFloat(document.getElementById('hours').value) || 0;
+      const participants = parseInt(document.getElementById('participants').value) || 0;
+      let net = 0;
+      let cost = 0;
+      if (service === 'grundkurs') {
+        // Pauschaler Kurs – Preis ist unabhängig von Teilnehmerzahl (max 10)
+        net = services.grundkurs.price;
+        cost = services.grundkurs.cost;
+      } else if (service === 'stapler') {
+        net = hours * services.stapler.price;
+        cost = hours * services.stapler.cost;
+      } else if (service === 'mietstapler') {
+        net = hours * services.mietstapler.price;
+        cost = hours * services.mietstapler.cost;
+      }
+      const gross = net * 1.19; // 19 % MwSt
+      const profit = net - cost;
+      document.getElementById('result').innerHTML =
+        `Netto: ${net.toFixed(2)} €<br>Brutto (inkl. MwSt): ${gross.toFixed(2)} €<br>Geschätzter Gewinn: ${profit.toFixed(2)} €`;
+    }
+
+    document.getElementById('service').addEventListener('change', updateInputs);
+    // Initiale Ansicht
+    updateInputs();
+  </script>
+</body>
+</html>

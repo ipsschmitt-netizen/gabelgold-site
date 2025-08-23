@@ -1,0 +1,105 @@
+/* Basiseinstellungen */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #222222;
+  line-height: 1.5;
+}
+h1, h2, h3 {
+  margin: 0;
+  font-weight: bold;
+}
+section {
+  margin-top: 2rem;
+}
+a {
+  color: #bb0000;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Kopfbereich */
+.header {
+  background-color: #f7f7f7;
+  padding: 1rem 0;
+  border-bottom: 2px solid #bb0000;
+}
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.logo {
+  width: 60px;
+  height: auto;
+}
+.logo-text h1 {
+  font-size: 2rem;
+  color: #bb0000;
+}
+.logo-text h2 {
+  font-size: 1rem;
+  font-style: italic;
+  color: #666666;
+  margin-top: 0.2rem;
+}
+
+/* Hauptinhalt */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Abschnittsüberschriften */
+.section h3 {
+  font-size: 1.5rem;
+  color: #bb0000;
+  margin-bottom: 0.5rem;
+}
+.section p {
+  margin: 0;
+  color: #333333;
+}
+
+/* Call-to-Action */
+.cta {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #ffefef;
+  border: 1px solid #ffd5d5;
+  text-align: center;
+}
+.cta p {
+  margin: 0;
+  font-weight: bold;
+  color: #bb0000;
+}
+
+/* Fußzeile */
+.footer {
+  background: #f7f7f7;
+  padding: 1rem;
+  border-top: 2px solid #bb0000;
+  text-align: center;
+}
+.footer h3 {
+  font-size: 1.3rem;
+  color: #bb0000;
+  margin-bottom: 0.5rem;
+}
+.footer address {
+  font-style: normal;
+  line-height: 1.4;
+  color: #333333;
+}
+.footer a {
+  color: #bb0000;
+}
