@@ -3,129 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabelgold – Stapler-Service & Schulungen</title>
-  <!-- Hauptstil -->
-  <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* Zusätzliche Styles für den Einsatzrechner */
-    #calcForm {
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      max-width: 400px;
-    }
-    #calcForm label {
-      font-weight: bold;
-      margin-bottom: 0.2rem;
-    }
-    #calcForm input, #calcForm select {
-      padding: 0.4rem;
-      font-size: 1rem;
-      border: 1px solid #cccccc;
-      border-radius: 4px;
-    }
-    #calcForm button {
-      margin-top: 0.5rem;
-      padding: 0.6rem;
-      background-color: #bb0000;
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    #calcForm button:hover {
-      background-color: #a00000;
-    }
-    #result {
-      margin-top: 1rem;
-      padding: 0.8rem;
-      background-color: #ffefef;
-      border: 1px solid #ffd5d5;
-      border-radius: 4px;
-      color: #333333;
-    }
-  </style>
+  <title>Gabelgold – Professioneller Stapler‑Service</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header: Logo und Navigationsleiste -->
   <header class="header">
-    <div class="logo-wrapper">
-      <img src="assets/images/logo.png" alt="Gabelgold Logo" class="logo">
-      <div class="logo-text">
-        <h1>Gabelgold</h1>
-        <h2>Stapler‑Service &amp; Schulungen</h2>
+    <div class="container header-inner">
+      <div class="logo-group">
+        <img src="logo.png" alt="Gabelgold Logo" class="logo">
+        <div class="brand">
+          <h1>Gabelgold</h1>
+          <p class="tagline">Stapler‑Service & Schulungen</p>
+        </div>
       </div>
+      <nav class="nav">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#rechner">Einsatzrechner</a>
+        <a href="#preise">Preise</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
     </div>
   </header>
 
-  <div class="container">
-    <section class="section">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Flexibler Stapler‑Service, Schulungen &amp; Mietstapler</h2>
+      <p>Wir bringen den passenden Gabelstapler mit oder ohne Fahrer direkt zu Ihnen – inklusive Schulungen und Beratung.</p>
+    </div>
+  </section>
+
+  <!-- Leistungen Section -->
+  <section class="section" id="leistungen">
+    <div class="container">
       <h3>Unsere Leistungen</h3>
-      <p>
-        Gabelgold bietet Ihnen ein flexibles Rundum‑Paket: Stapler mit Fahrer, Mietstapler ohne Fahrer
-        und praxisnahe Schulungen nach DGUV 308‑001. Sie bekommen alles aus einer Hand – inklusive
-        Organisation des Mietstaplers, Lieferung und fachkundiger Bedienung vor Ort. Für Betriebe mit
-        eigenem Gerät bieten wir Fahrerservices und jährliche Unterweisungen an.
-      </p>
-    </section>
-
-    <section class="section" id="einsatzrechner">
-      <h3>Einsatzrechner</h3>
-      <p>Berechnen Sie schnell Preis (netto &amp; brutto) und Ihren Gewinn für verschiedene Einsätze.</p>
-      <form id="calcForm" onsubmit="return false;">
-        <label for="service">Leistung:</label>
-        <select id="service" name="service">
-          <option value="stapler">Stapler + Fahrer (pro Stunde)</option>
-          <option value="mietstapler">Mietstapler ohne Fahrer (pro Stunde)</option>
-          <option value="grundkurs">Grundausbildung (2‑Tage‑Kurs, pauschal)</option>
-        </select>
-
-        <div id="inputHoursGroup">
-          <label for="hours">Stunden:</label>
-          <input type="number" id="hours" name="hours" value="1" min="1" step="1">
+      <div class="grid">
+        <div class="card">
+          <h4>Stapler mit Fahrer</h4>
+          <p>Komplett­service: Wir organisieren das Mietgerät, liefern es an und bedienen es vor Ort. Ideal für Engpässe oder Spezialaufträge.</p>
         </div>
+        <div class="card">
+          <h4>Mietstapler ohne Fahrer</h4>
+          <p>Sie benötigen nur das Gerät? Kein Problem: Wir stellen den passenden Stapler zur Verfügung – Ihr qualifiziertes Personal fährt.</p>
+        </div>
+        <div class="card">
+          <h4>Schulungen &amp; Unterweisungen</h4>
+          <p>Staplerschein, jährliche Unterweisung und Sicherheitsschulungen gemäß DGUV 308‑001 – praxisnah und direkt bei Ihnen.</p>
+        </div>
+        <div class="card">
+          <h4>Kaufberatung &amp; Vorführungen</h4>
+          <p>Wir begleiten Vorführungen von Linde oder Still, zeigen Möglichkeiten auf und unterstützen Sie bei der Kaufentscheidung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div id="inputParticipantsGroup" style="display:none;">
-          <label for="participants">Teilnehmer (max. 10):</label>
+  <!-- Einsatzrechner -->
+  <section class="section alt" id="rechner">
+    <div class="container">
+      <h3>Einsatzrechner</h3>
+      <p>Berechnen Sie Preis (netto/brutto) und Gewinn für Ihren Einsatz.</p>
+      <form id="calcForm" onsubmit="return false;">
+        <div class="form-group">
+          <label for="service">Leistung</label>
+          <select id="service" name="service">
+            <option value="stapler">Stapler + Fahrer (Stunden­basis)</option>
+            <option value="mietstapler">Mietstapler ohne Fahrer (Stunden­basis)</option>
+            <option value="grundkurs">Grundkurs (2‑Tage, pauschal)</option>
+            <option value="unterweisung">Unterweisung (½ Tag, pauschal)</option>
+          </select>
+        </div>
+        <div id="hoursGroup" class="form-group">
+          <label for="hours">Stunden</label>
+          <input type="number" id="hours" name="hours" value="3" min="1" step="1">
+        </div>
+        <div id="participantsGroup" class="form-group" style="display:none;">
+          <label for="participants">Teilnehmer</label>
           <input type="number" id="participants" name="participants" value="5" min="1" max="10">
         </div>
-
         <button type="button" onclick="calculate()">Berechnen</button>
       </form>
-      <div id="result"></div>
-    </section>
+      <div id="result" class="result"></div>
+    </div>
+  </section>
 
-    <section class="cta">
-      <p><strong>Haben Sie Fragen?</strong> Schreiben Sie uns an
-        <a href="mailto:gabelgold2025@gmail.com">gabelgold2025@gmail.com</a> oder rufen Sie an: 0152 / 04 00 62 86.</p>
-    </section>
-  </div>
+  <!-- Preise Section -->
+  <section class="section" id="preise">
+    <div class="container">
+      <h3>Preise &amp; Pakete</h3>
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Leistung</th><th>Preis (netto)</th><th>Beschreibung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Stapler + Fahrer</td>
+            <td>150–180 €/h<br>950 € pro Tag</td>
+            <td>Organisation, Lieferung, Bedienung; Mindestabnahme 3 Stunden</td>
+          </tr>
+          <tr>
+            <td>Mietstapler ohne Fahrer</td>
+            <td>40 €/h<br>320 € pro Tag</td>
+            <td>Sie fahren selbst; Versicherung und Kaution erforderlich</td>
+          </tr>
+          <tr>
+            <td>Grundkurs (2 Tage, max. 10 TN)</td>
+            <td>1 200 €</td>
+            <td>Ausbildung zum Staplerfahrer mit Theorie &amp; Praxis, Prüfung, Fahrausweise</td>
+          </tr>
+          <tr>
+            <td>Unterweisung (½ Tag, bis 15 TN)</td>
+            <td>600 €</td>
+            <td>Auffrischung &amp; Sicherheitstraining</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Kontakt Section -->
+  <section class="section alt" id="kontakt">
+    <div class="container">
+      <h3>Kontakt</h3>
+      <p>Haben Sie Fragen oder möchten Sie ein Angebot? Schreiben Sie uns oder rufen Sie an.</p>
+      <ul class="contact-list">
+        <li><strong>Adresse:</strong> Christian Schmitt, Tannenwäldchen 9, 42781 Haan</li>
+        <li><strong>Telefon:</strong> <a href="tel:+4915204006286">0152 / 04 00 62 86</a></li>
+        <li><strong>E-Mail:</strong> <a href="mailto:gabelgold2025@gmail.com">gabelgold2025@gmail.com</a></li>
+      </ul>
+    </div>
+  </section>
 
   <footer class="footer">
-    <h3>Kontakt</h3>
-    <address>
-      Christian Schmitt<br>
-      Tannenwäldchen 9 · 42781 Haan<br>
-      Tel: <a href="tel:+4915204006286">0152 / 04 00 62 86</a><br>
-      E‑Mail: <a href="mailto:gabelgold2025@gmail.com">gabelgold2025@gmail.com</a>
-    </address>
+    <div class="container">
+      <p>&copy; 2025 Gabelgold – Christian Schmitt</p>
+    </div>
   </footer>
 
   <script>
-    const services = {
-      stapler: { price: 150, cost: 65 }, // Preis und Kosten pro Stunde (Stapler + Fahrer)
-      mietstapler: { price: 40, cost: 25 }, // Preis und Kosten pro Stunde (Mietstapler ohne Fahrer)
-      grundkurs: { price: 1200, cost: 600 } // Pauschalpreis und geschätzte Kosten pro Kurs (2 Tage)
+    // Preise und Kosten für Kalkulation
+    const calcData = {
+      stapler: { price: 160, cost: 70 },     // pro Stunde
+      mietstapler: { price: 40, cost: 25 },  // pro Stunde
+      grundkurs: { price: 1200, cost: 600 }, // pauschal
+      unterweisung: { price: 600, cost: 300 } // pauschal
     };
 
-    function updateInputs() {
+    function updateInputVisibility() {
       const service = document.getElementById('service').value;
-      const hoursGroup = document.getElementById('inputHoursGroup');
-      const participantsGroup = document.getElementById('inputParticipantsGroup');
-      if (service === 'grundkurs') {
+      const hoursGroup = document.getElementById('hoursGroup');
+      const participantsGroup = document.getElementById('participantsGroup');
+      if (service === 'grundkurs' || service === 'unterweisung') {
         hoursGroup.style.display = 'none';
-        participantsGroup.style.display = 'block';
+        participantsGroup.style.display = (service === 'grundkurs') ? 'block' : 'none';
       } else {
         hoursGroup.style.display = 'block';
         participantsGroup.style.display = 'none';
@@ -138,26 +169,34 @@
       const participants = parseInt(document.getElementById('participants').value) || 0;
       let net = 0;
       let cost = 0;
-      if (service === 'grundkurs') {
-        // Pauschaler Kurs – Preis ist unabhängig von Teilnehmerzahl (max 10)
-        net = services.grundkurs.price;
-        cost = services.grundkurs.cost;
-      } else if (service === 'stapler') {
-        net = hours * services.stapler.price;
-        cost = hours * services.stapler.cost;
-      } else if (service === 'mietstapler') {
-        net = hours * services.mietstapler.price;
-        cost = hours * services.mietstapler.cost;
+      switch (service) {
+        case 'stapler':
+          net = hours * calcData.stapler.price;
+          cost = hours * calcData.stapler.cost;
+          break;
+        case 'mietstapler':
+          net = hours * calcData.mietstapler.price;
+          cost = hours * calcData.mietstapler.cost;
+          break;
+        case 'grundkurs':
+          net = calcData.grundkurs.price;
+          cost = calcData.grundkurs.cost;
+          break;
+        case 'unterweisung':
+          net = calcData.unterweisung.price;
+          cost = calcData.unterweisung.cost;
+          break;
       }
-      const gross = net * 1.19; // 19 % MwSt
+      const gross = net * 1.19;
       const profit = net - cost;
       document.getElementById('result').innerHTML =
-        `Netto: ${net.toFixed(2)} €<br>Brutto (inkl. MwSt): ${gross.toFixed(2)} €<br>Geschätzter Gewinn: ${profit.toFixed(2)} €`;
+        `<p><strong>Netto:</strong> ${net.toFixed(2)} €</p>` +
+        `<p><strong>Brutto (inkl. 19 % MwSt):</strong> ${gross.toFixed(2)} €</p>` +
+        `<p><strong>Gewinn (geschätzt):</strong> ${profit.toFixed(2)} €</p>`;
     }
-
-    document.getElementById('service').addEventListener('change', updateInputs);
+    document.getElementById('service').addEventListener('change', updateInputVisibility);
     // Initiale Ansicht
-    updateInputs();
+    updateInputVisibility();
   </script>
 </body>
 </html>
