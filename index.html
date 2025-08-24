@@ -63,7 +63,8 @@
   <section class="section alt" id="rechner">
     <div class="container">
       <h3>Einsatzrechner</h3>
-      <p>Berechnen Sie Preis (netto/brutto) und Gewinn für Ihren Einsatz.</p>
+      <!-- Anpassung: Der Einsatzrechner zeigt keinen Gewinn mehr an -->
+      <p>Berechnen Sie Preis (netto &amp; brutto) für Ihren Einsatz.</p>
       <form id="calcForm" onsubmit="return false;">
         <div class="form-group">
           <label for="service">Leistung</label>
@@ -188,11 +189,10 @@
           break;
       }
       const gross = net * 1.19;
-      const profit = net - cost;
+      // Hinweis: Gewinn wird nicht mehr ausgegeben, da er nur intern relevant ist
       document.getElementById('result').innerHTML =
         `<p><strong>Netto:</strong> ${net.toFixed(2)} €</p>` +
-        `<p><strong>Brutto (inkl. 19 % MwSt):</strong> ${gross.toFixed(2)} €</p>` +
-        `<p><strong>Gewinn (geschätzt):</strong> ${profit.toFixed(2)} €</p>`;
+        `<p><strong>Brutto (inkl. 19 % MwSt):</strong> ${gross.toFixed(2)} €</p>`;
     }
     document.getElementById('service').addEventListener('change', updateInputVisibility);
     // Initiale Ansicht
